@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.parent{
+    .child{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 24px;
+        font-family: sans-serif;
+    }
+}
+
+.parent{
+    display: grid;
+    height: 100vh;
+    width: 100%;    
+    grid-template-columns: repeat(4 , 1fr);
+    grid-template-rows: 1fr 6fr 2fr 2fr 2fr;
+    grid-template-areas: 
+    "header1 menu1 menu1 menu1"
+    "hero1 hero1 hero1 hero1"
+    "main main bosh image1"
+    "main main bosh extra"
+    "banner banner banner banner"
+    
+    ;
+}
+
+.child{
+    &-1{
+        background-color: #0F1629;
+        grid-area: header1;
+
+    }
+    &-2{
+        background-color: #EE3D4D;
+        grid-area: menu1;
+    }
+    &-3{
+        background-color: #4C85C5;
+        grid-area: hero1;
+    }
+  
+    &-4{
+        background-color: #24344B;
+        grid-area: main;
+    }
+    &-5{
+        background-color: #fff;
+        grid-area: bosh;
+    }
+    &-6{
+        background-color: #C0E3E5;
+        grid-area: image1;
+    }
+    &-7{
+        background-color: #4DBC96;
+        grid-area: extra;
+    }
+    &-8{
+        background-color: #FDD169;
+        grid-area: banner;
+    }
+
+}
+
+@media (max-width:768px) {
+    .parent{
+        display: grid;
+        height: 100vh;
+        width: 100%;    
+        grid-template-columns: repeat(3, 1fr); 
+        grid-template-rows: 2fr 6fr 2fr 2fr 2fr 2fr;
+        grid-template-areas: 
+        "header1 header1 header1"
+        "hero1 hero1 hero1"
+        "menu1 main main"
+        "menu1 main main"
+        "menu1 banner banner"
+        "menu1 extra image1"
+        ;
+        .child{
+            &-5{
+                display: none;
+            }
+        }
+    }
+    
+}
+
+@media (max-width:560px) {
+    .parent{
+        display: grid;
+        height: 100vh;
+        width: 100%;    
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 2fr 4fr 4fr 3fr 3fr 3fr;
+        grid-template-areas: 
+        "header1"
+        "menu1"
+        "hero1"
+        "main"
+        "banner"
+        "extra"
+        "image1"
+        ;
+        .child{
+            &-5{
+                display: none;
+            }
+        }
+    }
+}
